@@ -4,6 +4,9 @@ import threading
 import random
 import requests
 import time
+import os
+
+os.system('cls')
 
 all_proxies = requests.get('https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=1000&country=all&ssl=all&anonymity=all').text
 x = all_proxies.split()
@@ -39,3 +42,4 @@ while 1:
     data=input("")
     data={"cmd":"chat","text":"\n"+data+"\n"}
     ws.send(json.dumps(data))
+    time.sleep(0.3)
