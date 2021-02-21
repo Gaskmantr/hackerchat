@@ -1,13 +1,26 @@
 import json
-import websocket
 import threading
 import random
-import requests
 import time,sys
 import os
 
-os.system('color a')
-os.system('cls')
+try:
+    import requests
+except:
+    os.system("pip install requests")
+
+try:
+    import websocket
+except:
+    os.system('pip install websocket')
+    os.system('pip install websocket-client')
+
+try:
+    os.system('color a')
+    os.system('cls')
+except:
+    os.system("clear")
+
 print("""
              __ __     __  __ __   ____  ______ 
             |  T  T   /  ]|  T  T /    T|      T
@@ -53,6 +66,7 @@ def recvThread():
             if(data["nick"]!=nick):
                 print("\n"+data["nick"]+":"+data["text"])
         print("\r{}:".format(nick)+str(),end="")
+
 threading.Thread(target=recvThread).start()
 
 while 1:
